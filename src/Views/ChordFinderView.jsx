@@ -9,6 +9,7 @@ function ChordFinderView() {
       <h2>CHORD NAME</h2>
       <ChordCreator />
       <button>Play</button>
+      <button>Reset</button>
       <button>Add</button>
     </div>
   );
