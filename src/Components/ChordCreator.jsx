@@ -1,43 +1,187 @@
+import { useState } from "react";
 import styles from "./ChordCreator.module.css";
-import guitarStock from "../assets/guitarStock.jpeg";
 
 function ChordCreator() {
+  const [curFingers, setCurFingers] = useState([]);
+
+  function handleClick(e) {
+    setCurFingers([...curFingers, e.target.id]);
+
+    console.log(curFingers);
+    console.log("note sound");
+  }
+
+  function markFingers() {
+    curFingers.map((finger) => {
+      return <span>fret</span>;
+    });
+  }
+
   return (
     <div className={styles.chordCreatorContainer}>
-      <div className={styles.guitarStock}>
-        <img src={guitarStock} />
-      </div>
       <div className={styles.stockMap}>
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
-        <input className={styles.finger} type="checkbox" />
+        <div className={styles.string}>
+          <div
+            className={styles.finger}
+            id="1"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="2"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="3"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="4"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="5"
+            onClick={(e) => handleClick(e)}
+          ></div>
+        </div>
+        <div className={styles.string}>
+          <div
+            className={styles.finger}
+            id="1"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="2"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="3"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="4"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="5"
+            onClick={(e) => handleClick(e)}
+          ></div>
+        </div>
+        <div className={styles.string}>
+          <div
+            className={styles.finger}
+            id="1"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="2"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="3"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="4"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="5"
+            onClick={(e) => handleClick(e)}
+          ></div>
+        </div>
+        <div className={styles.string}>
+          <div
+            className={styles.finger}
+            id="1"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="2"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="3"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="4"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="5"
+            onClick={(e) => handleClick(e)}
+          ></div>
+        </div>
+        <div className={styles.string}>
+          <div
+            className={styles.finger}
+            id="1"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="2"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="3"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="4"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="5"
+            onClick={(e) => handleClick(e)}
+          ></div>
+        </div>
+        <div className={styles.string}>
+          <div
+            className={styles.finger}
+            id="1"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="2"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="3"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="4"
+            onClick={(e) => handleClick(e)}
+          ></div>
+          <div
+            className={styles.finger}
+            id="5"
+            onClick={(e) => handleClick(e)}
+          ></div>
+        </div>
       </div>
     </div>
   );
