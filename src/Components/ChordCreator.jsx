@@ -5,6 +5,8 @@ function ChordCreator() {
   const [curFingers, setCurFingers] = useState([]);
 
   function handleClick(e) {
+    if (curFingers.length > 5) return;
+
     setCurFingers([...curFingers, e.target.id]);
 
     console.log(curFingers);

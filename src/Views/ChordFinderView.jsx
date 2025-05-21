@@ -1,4 +1,5 @@
 import ChordCreator from "../Components/ChordCreator";
+import ChordCreatorUi from "../Components/ChordCreatorUi";
 import Logo from "../Components/Logo";
 import styles from "./ChordFinderView.module.css";
 
@@ -8,9 +9,7 @@ function ChordFinderView() {
       <Logo />
       <h2>CHORD NAME</h2>
       <ChordCreator />
-      <button>Play</button>
-      <button>Reset</button>
-      <button>Add</button>
+      <ChordCreatorUi />
     </div>
   );
 }
