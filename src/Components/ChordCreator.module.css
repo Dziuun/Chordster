@@ -23,9 +23,21 @@
   align-content: space-between;
 }
 
-.finger {
+.fret {
   width: 20%;
-  height: 5px;
-
+  height: 10px;
   background-color: silver;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.finger {
+  display: inline-block;
+
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-color: blue;
 }

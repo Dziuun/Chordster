@@ -4,185 +4,226 @@ import styles from "./ChordCreator.module.css";
 function ChordCreator() {
   const [curFingers, setCurFingers] = useState([]);
 
+  const [stringE, setStringE] = useState(
+    Array.from({ length: 5 }, (_, i) => ({
+      id: i + 1,
+      pressed: false,
+    }))
+  );
+
+  const [stringA, setStringA] = useState(
+    Array.from({ length: 5 }, (_, i) => ({
+      id: i + 1,
+      pressed: false,
+    }))
+  );
+
+  const [stringD, setStringD] = useState(
+    Array.from({ length: 5 }, (_, i) => ({
+      id: i + 1,
+      pressed: false,
+    }))
+  );
+
+  const [stringG, setStringG] = useState(
+    Array.from({ length: 5 }, (_, i) => ({
+      id: i + 1,
+      pressed: false,
+    }))
+  );
+
+  const [stringB, setStringB] = useState(
+    Array.from({ length: 5 }, (_, i) => ({
+      id: i + 1,
+      pressed: false,
+    }))
+  );
+
+  const [stringe, setStringe] = useState(
+    Array.from({ length: 5 }, (_, i) => ({
+      id: i + 1,
+      pressed: false,
+    }))
+  );
+
   function handleClick(e) {
-    if (curFingers.length > 5) return;
+    // if (curFingers.length > 5) return;
 
-    setCurFingers([...curFingers, e.target.id]);
+    const id = +e.target.id.slice(1, 2);
 
-    console.log(curFingers);
+    const baseNote = e.target.id.slice(0, 1);
+
+    console.log(id, baseNote);
+
+    switch (baseNote) {
+      case "E":
+        setStringE((prev) =>
+          prev.map((fret) =>
+            fret.id === id ? { ...fret, pressed: !fret.pressed } : fret
+          )
+        );
+        break;
+
+      case "A":
+        setStringA((prev) =>
+          prev.map((fret) =>
+            fret.id === id ? { ...fret, pressed: !fret.pressed } : fret
+          )
+        );
+        break;
+
+      case "D":
+        setStringD((prev) =>
+          prev.map((fret) =>
+            fret.id === id ? { ...fret, pressed: !fret.pressed } : fret
+          )
+        );
+        break;
+
+      case "G":
+        setStringG((prev) =>
+          prev.map((fret) =>
+            fret.id === id ? { ...fret, pressed: !fret.pressed } : fret
+          )
+        );
+        break;
+
+      case "B":
+        setStringB((prev) =>
+          prev.map((fret) =>
+            fret.id === id ? { ...fret, pressed: !fret.pressed } : fret
+          )
+        );
+        break;
+
+      case "e":
+        setStringe((prev) =>
+          prev.map((fret) =>
+            fret.id === id ? { ...fret, pressed: !fret.pressed } : fret
+          )
+        );
+        break;
+    }
+
     console.log("note sound");
-  }
-
-  function markFingers() {
-    curFingers.map((finger) => {
-      return <span>fret</span>;
-    });
   }
 
   return (
     <div className={styles.chordCreatorContainer}>
       <div className={styles.stockMap}>
         <div className={styles.string}>
-          <div
-            className={styles.finger}
-            id="1"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="2"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="3"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="4"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="5"
-            onClick={(e) => handleClick(e)}
-          ></div>
+          {stringE.map((fret) => {
+            return (
+              <div
+                className={styles.fret}
+                id={`E${fret.id}`}
+                onClick={(e) => {
+                  handleClick(e);
+                }}
+              >
+                {fret.pressed ? (
+                  <span className={styles.finger} id={fret.id}></span>
+                ) : (
+                  ""
+                )}
+              </div>
+            );
+          })}
         </div>
         <div className={styles.string}>
-          <div
-            className={styles.finger}
-            id="1"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="2"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="3"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="4"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="5"
-            onClick={(e) => handleClick(e)}
-          ></div>
+          {stringA.map((fret) => {
+            return (
+              <div
+                className={styles.fret}
+                id={`A${fret.id}`}
+                onClick={(e) => {
+                  handleClick(e);
+                }}
+              >
+                {fret.pressed ? (
+                  <span className={styles.finger} id={fret.id}></span>
+                ) : (
+                  ""
+                )}
+              </div>
+            );
+          })}
         </div>
         <div className={styles.string}>
-          <div
-            className={styles.finger}
-            id="1"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="2"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="3"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="4"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="5"
-            onClick={(e) => handleClick(e)}
-          ></div>
+          {stringD.map((fret) => {
+            return (
+              <div
+                className={styles.fret}
+                id={`D${fret.id}`}
+                onClick={(e) => {
+                  handleClick(e);
+                }}
+              >
+                {fret.pressed ? (
+                  <span className={styles.finger} id={fret.id}></span>
+                ) : (
+                  ""
+                )}
+              </div>
+            );
+          })}
         </div>
         <div className={styles.string}>
-          <div
-            className={styles.finger}
-            id="1"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="2"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="3"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="4"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="5"
-            onClick={(e) => handleClick(e)}
-          ></div>
+          {stringG.map((fret) => {
+            return (
+              <div
+                className={styles.fret}
+                id={`G${fret.id}`}
+                onClick={(e) => {
+                  handleClick(e);
+                }}
+              >
+                {fret.pressed ? (
+                  <span className={styles.finger} id={fret.id}></span>
+                ) : (
+                  ""
+                )}
+              </div>
+            );
+          })}
         </div>
         <div className={styles.string}>
-          <div
-            className={styles.finger}
-            id="1"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="2"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="3"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="4"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="5"
-            onClick={(e) => handleClick(e)}
-          ></div>
+          {stringB.map((fret) => {
+            return (
+              <div
+                className={styles.fret}
+                id={`B${fret.id}`}
+                onClick={(e) => {
+                  handleClick(e);
+                }}
+              >
+                {fret.pressed ? (
+                  <span className={styles.finger} id={fret.id}></span>
+                ) : (
+                  ""
+                )}
+              </div>
+            );
+          })}
         </div>
         <div className={styles.string}>
-          <div
-            className={styles.finger}
-            id="1"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="2"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="3"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="4"
-            onClick={(e) => handleClick(e)}
-          ></div>
-          <div
-            className={styles.finger}
-            id="5"
-            onClick={(e) => handleClick(e)}
-          ></div>
+          {stringe.map((fret) => {
+            return (
+              <div
+                className={styles.fret}
+                id={`e${fret.id}`}
+                onClick={(e) => {
+                  handleClick(e);
+                }}
+              >
+                {fret.pressed ? (
+                  <span className={styles.finger} id={fret.id}></span>
+                ) : (
+                  ""
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
