@@ -3,6 +3,7 @@ import styles from "./ChordCreator.module.css";
 
 function ChordCreator() {
   const [curFingers, setCurFingers] = useState([]);
+  const [scrollValue, setScrollValue] = useState(0);
 
   const [stringE, setStringE] = useState(
     Array.from({ length: 5 }, (_, i) => ({
@@ -47,8 +48,6 @@ function ChordCreator() {
   );
 
   function handleClick(e) {
-    // if (curFingers.length > 5) return;
-
     const id = +e.target.id.slice(1, 2);
 
     const baseNote = e.target.id.slice(0, 1);
@@ -62,6 +61,9 @@ function ChordCreator() {
             fret.id === id ? { ...fret, pressed: !fret.pressed } : fret
           )
         );
+
+        setCurFingers((prev) => [...prev, (prev[0] = id)]);
+        console.log(curFingers);
         break;
 
       case "A":
@@ -122,7 +124,7 @@ function ChordCreator() {
                 }}
               >
                 {fret.pressed ? (
-                  <span className={styles.finger} id={fret.id}></span>
+                  <span className={styles.finger} id={`E${fret.id}`}></span>
                 ) : (
                   ""
                 )}
@@ -141,7 +143,7 @@ function ChordCreator() {
                 }}
               >
                 {fret.pressed ? (
-                  <span className={styles.finger} id={fret.id}></span>
+                  <span className={styles.finger} id={`A${fret.id}`}></span>
                 ) : (
                   ""
                 )}
@@ -160,7 +162,7 @@ function ChordCreator() {
                 }}
               >
                 {fret.pressed ? (
-                  <span className={styles.finger} id={fret.id}></span>
+                  <span className={styles.finger} id={`D${fret.id}`}></span>
                 ) : (
                   ""
                 )}
@@ -179,7 +181,7 @@ function ChordCreator() {
                 }}
               >
                 {fret.pressed ? (
-                  <span className={styles.finger} id={fret.id}></span>
+                  <span className={styles.finger} id={`G${fret.id}`}></span>
                 ) : (
                   ""
                 )}
@@ -198,7 +200,7 @@ function ChordCreator() {
                 }}
               >
                 {fret.pressed ? (
-                  <span className={styles.finger} id={fret.id}></span>
+                  <span className={styles.finger} id={`B${fret.id}`}></span>
                 ) : (
                   ""
                 )}
@@ -217,7 +219,7 @@ function ChordCreator() {
                 }}
               >
                 {fret.pressed ? (
-                  <span className={styles.finger} id={fret.id}></span>
+                  <span className={styles.finger} id={`e${fret.id}`}></span>
                 ) : (
                   ""
                 )}
