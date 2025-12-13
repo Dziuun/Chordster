@@ -1,6 +1,18 @@
 import { useState } from "react";
 import styles from "./ChordCreator.module.css";
 
+const initialState = {
+  strings: [
+    {
+      string: "E",
+      frets: Array.from({ length: 5 }, (_, i) => ({
+        id: i + 1,
+        pressed: false,
+      })),
+    },
+  ],
+};
+
 function ChordCreator() {
   const [curFingers, setCurFingers] = useState([]);
   const [scrollValue, setScrollValue] = useState(0);
@@ -40,7 +52,7 @@ function ChordCreator() {
     }))
   );
 
-  const [stringe, setStringe] = useState(
+  const [stringLowE, setStringLowE] = useState(
     Array.from({ length: 5 }, (_, i) => ({
       id: i + 1,
       pressed: false,
@@ -99,7 +111,12 @@ function ChordCreator() {
         break;
 
       case "e":
-        setStringe((prev) =>
+        if (stringLowE.filter((f) => f.pressed).length) {
+          setStringLowE((prev) => prev.map());
+          break;
+        }
+
+        setStringLowE((prev) =>
           prev.map((fret) =>
             fret.id === id ? { ...fret, pressed: !fret.pressed } : fret
           )
@@ -209,7 +226,7 @@ function ChordCreator() {
           })}
         </div>
         <div className={styles.string}>
-          {stringe.map((fret) => {
+          {stringLowE.map((fret) => {
             return (
               <div
                 className={styles.fret}

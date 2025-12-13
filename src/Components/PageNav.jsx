@@ -1,10 +1,9 @@
 import Button from "./Button";
-import Logo from "./Logo";
 
 function NavBar() {
   return (
-    <div className="flex flex-row justify-between pl-8 pr-8 bg-emerald-400">
-      <Logo />
+    <nav className="flex flex-row justify-between pl-8 pr-8 absolute w-screen z-20 pt-4 ">
+      <h1 className="text-2xl text-emerald-50">CHORDSTER</h1>
       <div className="flex gap-4 items-center">
         <Button type="nav" destination="about">
           About
@@ -13,7 +12,7 @@ function NavBar() {
           Login
         </Button>
       </div>
-    </div>
+    </nav>
   );
 }
 
