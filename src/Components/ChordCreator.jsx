@@ -5,45 +5,43 @@ const initialState = {
   strings: [
     {
       string: "E",
-      frets: Array.from({ length: 24 }, (_, i) => ({
-        pressed: false,
-        muted: false,
-      })),
+      pressed: false,
+      fretPressed: 0,
+      muted: false,
     },
+
     {
       string: "A",
-      frets: Array.from({ length: 24 }, (_, i) => ({
-        pressed: false,
-        muted: false,
-      })),
+      pressed: false,
+      fretPressed: 0,
+      muted: false,
     },
+
     {
       string: "D",
-      frets: Array.from({ length: 24 }, (_, i) => ({
-        pressed: false,
-        muted: false,
-      })),
+      pressed: false,
+      fretPressed: 0,
+      muted: false,
     },
+
     {
       string: "G",
-      frets: Array.from({ length: 24 }, (_, i) => ({
-        pressed: false,
-        muted: false,
-      })),
+      pressed: false,
+      fretPressed: 0,
+      muted: false,
     },
     {
       string: "B",
-      frets: Array.from({ length: 24 }, (_, i) => ({
-        pressed: false,
-        muted: false,
-      })),
+
+      pressed: false,
+      fretPressed: 0,
+      muted: false,
     },
     {
       string: "e",
-      frets: Array.from({ length: 24 }, (_, i) => ({
-        pressed: false,
-        muted: false,
-      })),
+      pressed: false,
+      fretPressed: 0,
+      muted: false,
     },
   ],
   scroll: 0,
