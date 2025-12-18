@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import styles from "./ChordCreator.module.css";
 
 const initialState = {
@@ -66,7 +66,22 @@ function reducer(state, action) {
 }
 
 function ChordCreator() {
-  const [{ strings, scroll }, dispatch] = useReducer(reducer, initialState);
+  const [{ strings, scroll, pressed }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
+
+  useEffect(function () {
+    async function getChord() {
+      const res = await fetch(
+        `https://www.tofret.com/reverse-chord-finder.php?return-type=json&notes=A+F%23+Eb`
+      );
+      const data = await res.json();
+      console.log(data);
+    }
+
+    getChord();
+  }, []);
 
   return (
     <div className={styles.chordCreatorContainer}>
